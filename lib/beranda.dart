@@ -119,8 +119,8 @@ class _BerandaState extends State<Beranda> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       tombol(Icons.payment, 'Cek Saldo'),
-                      tombol(Icons.payment, 'Cek Saldo'),
-                      tombol(Icons.payment, 'Cek Saldo')
+                      tombol(Icons.payment, 'Transfer'),
+                      tombol(Icons.payment, 'Deposit')
                     ],
                   ),
                   SizedBox(
@@ -129,9 +129,9 @@ class _BerandaState extends State<Beranda> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      tombol(Icons.payment, 'Cek Saldo'),
-                      tombol(Icons.payment, 'Cek Saldo'),
-                      tombol(Icons.payment, 'Cek Saldo')
+                      tombol(Icons.payment, 'Pembayaran'),
+                      tombol(Icons.payment, 'Pinjaman'),
+                      tombol(Icons.payment, 'Mutasi')
                     ],
                   )
                 ],
