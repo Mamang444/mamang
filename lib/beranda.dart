@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mamang/login.dart';
 import 'package:mamang/tombol.dart';
 
 class Beranda extends StatefulWidget {
@@ -14,6 +15,12 @@ class _BerandaState extends State<Beranda> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [IconButton(onPressed: () {
+          Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (context) => Login(),
+          ));
+        }, icon: Icon(Icons.logout))],
+        centerTitle: true,
         backgroundColor: Color.fromARGB(255, 19, 17, 175),
         title: Text(
           'Koperasi Undiksha',

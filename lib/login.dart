@@ -17,6 +17,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Color.fromARGB(255, 19, 17, 175),
           title: Text(
             'Koperasi Undiksha',
@@ -74,7 +75,7 @@ class _LoginState extends State<Login> {
                       child: TextButton(
                           onPressed: () {
                             if (username == 'yandi@undiksha.ac.id' && password == '2015051092') {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => Beranda(),
@@ -92,18 +93,12 @@ class _LoginState extends State<Login> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'Daftar Mbanking',
-                            style: TextStyle(
+                          TextButton(onPressed: () {}, child: Text('Daftar Mbanking',  style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 29, 17, 199)),
-                          ),
-                          Text(
-                            'Lupa Password?',
-                            style: TextStyle(
+                                color: Color.fromARGB(255, 29, 17, 199)))),
+                          TextButton(onPressed: () {}, child: Text('Daftar Mbanking',  style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 29, 17, 199)),
-                          )
+                                color: Color.fromARGB(255, 29, 17, 199))))
                         ],
                       ),
                     )
