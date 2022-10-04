@@ -73,7 +73,7 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(30)),
                       child: TextButton(
                           onPressed: () {
-                            if (username == '123' && password == '123') {
+                            if (username == 'yandi@undiksha.ac.id' && password == '2015051092') {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

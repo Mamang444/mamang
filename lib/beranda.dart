@@ -64,7 +64,7 @@ class _BerandaState extends State<Beranda> {
                                       Container(
                                         width: 200,
                                         child: Text(
-                                          'I Ketut resika Arthana',
+                                          'I KOMANG YANDI CIPTA L.',
                                           textAlign: TextAlign.start,
                                         ),
                                       ),
