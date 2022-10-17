@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mamang/TabletView.dart';
 import 'package:mamang/login.dart';
 import 'package:mamang/mobile_view.dart';
 import 'package:mamang/tombol.dart';
@@ -32,7 +33,7 @@ class _BerandaState extends State<Beranda> {
         if (constraints.maxWidth>480) {
           return TabletView();
         } else {
-          
+          return MobileView();
         }
       })),
       bottomNavigationBar: BottomNavigationBar(
