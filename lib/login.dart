@@ -66,7 +66,7 @@ class _LoginState extends State<Login> {
                         decoration:
                             InputDecoration(border: OutlineInputBorder())),
                     Container(
-                      width: 220,
+                      width: MediaQuery.of(context).size.width*0.2,
                       margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                       decoration: BoxDecoration(
                           color: Color.fromARGB(255, 19, 17, 175),
