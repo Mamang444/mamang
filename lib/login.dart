@@ -42,9 +42,13 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     Container(
-                        width: 400,
                         margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                        child: Text('Username', textAlign: TextAlign.start)),
+                        child: Row(
+                          children: [
+                            Text('Username', textAlign: TextAlign.start),
+                          ],
+                        )),
+                        
                     TextField(
                         onChanged: (value) {
                           username = value;
@@ -53,10 +57,13 @@ class _LoginState extends State<Login> {
                             InputDecoration(border: OutlineInputBorder())),
                     Container(
                         margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        width: 400,
-                        child: Text(
-                          'Password',
-                          textAlign: TextAlign.start,
+                        child: Row(
+                          children: [
+                            Text(
+                              'Password',
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
                         )),
                     TextField(
                       obscureText: true,
