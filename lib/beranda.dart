@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mamang/TabletView.dart';
 import 'package:mamang/login.dart';
 import 'package:mamang/mobile_view.dart';
+import 'package:mamang/qrcode.dart';
 import 'package:mamang/tombol.dart';
 
 class Beranda extends StatefulWidget {
@@ -56,7 +57,9 @@ class _BerandaState extends State<Beranda> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFF1C2474),
-        onPressed: () {},
+        onPressed: () {Navigator.push(context, MaterialPageRoute(
+          builder: (context) => qrcode(),
+        ));},
         child: Container(
           margin: EdgeInsets.all(15.0),
           child: Icon(Icons.qr_code_scanner),
