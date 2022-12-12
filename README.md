@@ -19,3 +19,6 @@ samples, guidance on mobile development, and a full API reference.
 
 ![ss1](https://user-images.githubusercontent.com/114584914/192781784-80e89825-b90b-4af3-8de4-2150965b4c69.jpg)
 ![ss2](https://user-images.githubusercontent.com/114584914/192781797-277ceb78-db68-463b-90ad-991e00da5aec.jpg)
+![Responsive_Ukuran Hp](https://user-images.githubusercontent.com/114584914/196191896-d6dafb82-ce8f-4651-ba23-f42b16872da0.jpg)
+![Responsive_Ukuran Tablet](https://user-images.githubusercontent.com/114584914/196191910-a42edcc5-0fa4-4d6d-b250-d9a737e1bd0a.jpg)
+![Adaptip](https://user-images.githubusercontent.com/114584914/196191930-15300a16-8783-4ef4-933f-5c0e5e9c1577.jpg)
