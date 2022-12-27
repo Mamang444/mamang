@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class UserModel {
-  final String email;
-  final String token;
+  final String username;
+  final String nama;
 
 
-  UserModel({required this.email, required this.token});
+  UserModel({required this.username, required this.nama});
 }
 

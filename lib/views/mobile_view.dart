@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mamang/tombol.dart';
+import 'package:mamang/home/beranda.dart';
+import 'package:mamang/model/list_users_model.dart';
+import 'package:mamang/grid/tombol.dart';
+import 'package:mamang/transaksi/transfer.dart';
 
 class MobileView extends StatelessWidget {
-  const MobileView({
-    Key? key,
-  }) : super(key: key);
+  final ListUsersModel user;
+  MobileView({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class MobileView extends StatelessWidget {
                                       Container(
                                         width: 200,
                                         child: Text(
-                                          'I KOMANG YANDI CIPTA L.',
+                                          user.nama.toString(),
                                           textAlign: TextAlign.start,
                                         ),
                                       ),
@@ -81,7 +83,7 @@ class MobileView extends StatelessWidget {
                                       Container(
                                         width: 200,
                                         child: Text(
-                                          'Rp. 120.000.000',
+                                          user.saldo.toString(),
                                           textAlign: TextAlign.start,
                                         ),
                                       ),
@@ -107,9 +109,15 @@ class MobileView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      tombol(Icons.payment, 'Cek Saldo'),
-                      tombol(Icons.payment, 'Transfer'),
-                      tombol(Icons.payment, 'Deposit')
+                      tombol(Icons.payment, 'Cek Saldo', (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                      }),
+                      tombol(Icons.payment, 'Transfer', (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Transfer()));
+                      }),
+                      tombol(Icons.payment, 'Deposit', (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                      })
                     ],
                   ),
                   SizedBox(
@@ -118,9 +126,15 @@ class MobileView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      tombol(Icons.payment, 'Pembayaran'),
-                      tombol(Icons.payment, 'Pinjaman'),
-                      tombol(Icons.payment, 'Mutasi')
+                      tombol(Icons.payment, 'Transfer', (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                      }),
+                      tombol(Icons.payment, 'Pinjaman', (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                      }),
+                      tombol(Icons.payment, 'Mutasi', (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                      })
                     ],
                   )
                 ],

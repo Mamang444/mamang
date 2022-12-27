@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mamang/login.dart';
+import 'package:mamang/login_interface/login.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:mamang/login1.dart';
-import 'package:mamang/app_widget.dart';
 
 void main() async {
   runApp(
@@ -17,7 +15,7 @@ void main() async {
       theme: ThemeData(
         scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
-      home: AppWidget(),
+      home: LoginPage(),
     ),
   );
   

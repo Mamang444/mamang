@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class tombol extends StatelessWidget {
   var itombol;
   final String nmtombol;
+  final VoidCallback onPressed;
 
-  tombol(this.itombol, this.nmtombol);
+  tombol(this.itombol, this.nmtombol, this.onPressed);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class tombol extends StatelessWidget {
             color: Colors.lightBlueAccent,
             borderRadius: BorderRadius.circular(10)),
         child: InkWell(
-          onTap: () {},
+          onTap: onPressed,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
