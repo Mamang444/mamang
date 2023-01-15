@@ -38,19 +38,19 @@ class ListUsersService {
       url,
       data: formData,
     );
-    if (response.data['status'] == "success") {
+    if (response.statusCode == 200) {
       final data = response.data;
-      print(data['user_id']);
       return ListUsersModel(
-        user_id: data['data'][0]['user_id'],
+        user_id: data[0]['user_id'],
         username: username,
         password: password,
-        nama: data['data'][0]['nama'],
-        saldo: data['data'][0]['saldo'],
+        nama: data[0]['nama'],
+        saldo: data[0]['saldo'],
+        nomor_rekening: data[0]['nomor_rekening'],
       );
     } else {
       print('gagal');
-      return postLogin(username, password);
+      // return postLogin(username, password);
     }
   }
 

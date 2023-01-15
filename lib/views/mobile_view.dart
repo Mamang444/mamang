@@ -31,7 +31,7 @@ class MobileView extends StatelessWidget {
                               margin: EdgeInsets.all(20),
                               width: 100,
                               height: 100,
-                              child: Image.asset('images/2.jpeg')),
+                              child: Image.asset('images/undiksha.png')),
                           Container(
                             child: Column(
                               children: [
