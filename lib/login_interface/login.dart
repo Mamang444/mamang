@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     // height: 100,width: 100,
                   child:
-                  Image.asset('Assets/images/undiksha.png')),
+                  Image.asset('images/undiksha.png'), height: 200,),
                   SizedBox(height: 20),
                   Container(
                     padding: EdgeInsets.all(10),

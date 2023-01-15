@@ -5,16 +5,15 @@ class ListUsersService {
   Dio dio = Dio();
 
   Future<List<ListUsersModel>?> getDataUsers() async {
-    String url = "https://koperasiundiksha.000webhostapp.com/users";
+    String url = "http://apikoperasi.rey1024.com/users";
     final Response response;
     try {
       response = await dio.get(
         url,
       );
-      // print(response.data);
       if (response.statusCode == 200) {
+        print("Berhasil");
         var json = response.data;
-        //boleh dipakai sesuai kondisi data json
         if (json is Map && json.keys.contains('data')) {
           var data = json['data'];
           if (data is List) {
@@ -31,14 +30,10 @@ class ListUsersService {
     }
   }
    postLogin(String username, String password) async {
-    String url = 'https://koperasiundiksha.000webhostapp.com';
+    String url = 'http://apikoperasi.rey1024.com';
     final Response response;
     FormData formData =
         FormData.fromMap({"username": username, "password": password});
-    // {"username": username, "password": password};
-
-    // dio.options.headers['Authentication'] = 'Bearer $token'
-    // dio.options.headers['Content type'] = 'aplication/json'
     response = await dio.post(
       url,
       data: formData,
@@ -72,20 +67,34 @@ class ListUsersService {
     }
   }
 
-  postRegister(String username, String password, String nama) async {
-    String url = 'https://koperasiundiksha.000webhostapp.com/register';
+  postRegister(String username, String password, String nama, String nim) async {
+    String url = 'http://apikoperasi.rey1024.com/register';
     final Response response;
     FormData formData = FormData.fromMap(
-        {"username": username, "password": password, "nama": nama});
+        {"username": username, "password": password, "nama": nama, "nim": nim});
     response = await dio.post(
       url,
       data: formData,
     );
-    if (response.data['pesan'] == "Data berhasil disimpan, saldo awal 50.000") {
+    if (response.data['status'] == "success") {
       print('Berhasil');
+      return true;
     } else {
       print(response.data);
-      return postRegister(username, password, nama);
+      return false;
+    }
+  }
+
+   tarikSaldo(int user_id, double jumlah_tarikan) async {
+    String url = 'https://koperasiundiksha.000webhostapp.com/tarikan';
+    final Response response;
+    FormData formData = FormData.fromMap(
+        {"user_id": user_id, "jumlah_tarikan": jumlah_tarikan});
+    try {
+      response = await dio.post(url, data: formData);
+      print('berhasil');
+    } catch (e) {
+      print('gagal');
     }
   }
 }

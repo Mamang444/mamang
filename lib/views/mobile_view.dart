@@ -20,6 +20,7 @@ class MobileView extends StatelessWidget {
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  SizedBox(height: 20),
                   Container(
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.black),
@@ -99,8 +100,8 @@ class MobileView extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(8),
-              margin: EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.fromLTRB(10, 30,10,30),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10)),

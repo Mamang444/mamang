@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mamang/login_interface/login.dart';
+import 'package:mamang/qrcode.dart';
 import 'package:mamang/views/tabletview.dart';
 import 'package:mamang/views/mobile_view.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -7,9 +9,9 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class Beranda extends StatefulWidget {
   final ListUsersModel user;
-  
+
   const Beranda({Key? key, required this.user}) : super(key: key);
-  
+
   @override
   State<Beranda> createState() => _BerandaState();
 }
@@ -44,11 +46,17 @@ class _BerandaState extends State<Beranda> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {
-          // Navigator.pushReplacement(context, MaterialPageRoute(
-          //   builder: (context) => Login(),
-          // ));
-        }, icon: Icon(Icons.logout))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginPage(),
+                    ));
+              },
+              icon: Icon(Icons.logout))
+        ],
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 19, 17, 175),
         title: Text(
@@ -57,8 +65,8 @@ class _BerandaState extends State<Beranda> {
         ),
       ),
       body: LayoutBuilder(builder: ((context, constraints) {
-        if (constraints.maxWidth>480) { 
-            return TabletView();
+        if (constraints.maxWidth > 480) {
+          return TabletView();
         } else {
           return MobileView(user: widget.user);
         }
@@ -83,10 +91,15 @@ class _BerandaState extends State<Beranda> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFF1C2474),
-        onPressed: () => _scan(),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => qrcode()),
+          ),
+        ),
         child: Column(
           children: [
-            // TextButton(onPressed: () {_launchUrl();}, 
+            // TextButton(onPressed: () {_launchUrl();},
             // child: Text(_data)),
             Padding(padding: EdgeInsets.only(top: 15)),
             Icon(Icons.qr_code_scanner),
@@ -98,5 +111,3 @@ class _BerandaState extends State<Beranda> {
     );
   }
 }
-
-
