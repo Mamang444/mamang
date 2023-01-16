@@ -114,7 +114,7 @@ class MobileView extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
                       }),
                       tombol(Icons.payment, 'Transfer', (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Transfer()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Transfer(user: user)));
                       }),
                       tombol(Icons.payment, 'Deposit', (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));

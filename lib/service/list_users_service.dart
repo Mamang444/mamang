@@ -51,12 +51,15 @@ class ListUsersService {
     }
   }
 
-  transfer(int user_id, double jumlah_setoran) async {
+  transfer(int user_id, double jumlah_setoran, String nomor_rekening) async {
     String url = 'http://apikoperasi.rey1024.com/transfer';
     final Response response;
     FormData formData = FormData.fromMap(
-        {"user_id": user_id, "jumlah_setoran": jumlah_setoran});
+        {"id_pengirim": user_id, "jumlah_transfer": jumlah_setoran, "nomor_rekening": nomor_rekening});
     try {
+      print(user_id);
+      print(jumlah_setoran);
+      print(nomor_rekening);
       response = await dio.post(url, data: formData);
       print('berhasil');
     } catch (e) {

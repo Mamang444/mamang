@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mamang/home/beranda.dart';
 import 'package:mamang/model/list_users_model.dart';
 import 'package:mamang/service/list_users_service.dart';
 
 class Transfer extends StatefulWidget {
-  const Transfer({Key? key}) : super(key: key);
+  final ListUsersModel user;
+  const Transfer({Key? key, required this.user}) : super(key: key);
 
   @override
   State<Transfer> createState() => _TransferState();
@@ -24,9 +24,9 @@ class _TransferState extends State<Transfer> {
     });
   }
 
-tranferSaldo(int user_id, String jumlah) async {
+tranferSaldo(int user_id, String jumlah, String nomor_rekening) async {
     ListUsersService _service = ListUsersService();
-    await _service.transfer(user_id, double.parse(jumlah));
+    await _service.transfer(user_id, double.parse(jumlah), nomor_rekening);
   }
 
   @override
@@ -64,14 +64,11 @@ tranferSaldo(int user_id, String jumlah) async {
 Widget listTileUser(String id, String? saldo, String subtitle, Color color,
       String nilai, Color bgColor, String nama) {
     return ListTile(
-      isThreeLine: true,
       title: Text(nama,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-      subtitle: Text(subtitle + '\n' + saldo.toString()),
       trailing: IconButton(
           onPressed: () {
-            transferDialog(nama, int.parse(id));
-            // succesDialog();
+            transferDialog(nama, int.parse(widget.user.user_id!));
           },
           icon: Icon(Icons.money_outlined)),
     );
@@ -92,6 +89,7 @@ Widget gridText(String nilai) {
 
 transferDialog(String nama, int id) {
    TextEditingController jumlahSetoranController = TextEditingController();
+   TextEditingController rekeningController = TextEditingController();
    return showDialog(
      context: context,
      builder: (_) => AlertDialog(
@@ -109,7 +107,7 @@ transferDialog(String nama, int id) {
                     setState(() {
                       loading_transfer = true;
                     });
-                    await tranferSaldo(id, jumlahSetoranController.text);
+                    await tranferSaldo(id, jumlahSetoranController.text, rekeningController.text);
                     getUsers();
 
                     Navigator.pop(context);
@@ -128,6 +126,12 @@ transferDialog(String nama, int id) {
                       labelText: "Jumlah Setoran",
                     ),
                     controller: jumlahSetoranController,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: "Nomor Rekening",
+                    ),
+                    controller: rekeningController,
                   ),
                 ],
               ),
