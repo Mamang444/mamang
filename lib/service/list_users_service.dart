@@ -85,8 +85,8 @@ class ListUsersService {
     }
   }
 
-   tarikSaldo(int user_id, double jumlah_tarikan) async {
-    String url = 'https://koperasiundiksha.000webhostapp.com/tarikan';
+   tarik(int user_id, double jumlah_tarikan) async {
+    String url = 'http://apikoperasi.rey1024.com/tarikan';
     final Response response;
     FormData formData = FormData.fromMap(
         {"user_id": user_id, "jumlah_tarikan": jumlah_tarikan});

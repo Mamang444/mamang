@@ -11,7 +11,7 @@ void main() async {
         ResponsiveBreakpoint.resize(800, name: TABLET),
         ResponsiveBreakpoint.autoScale(1000, name: DESKTOP),
       ])),
-      title: 'latihan3',
+      title: 'Koperasi Undiksha',
       theme: ThemeData(
         scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),

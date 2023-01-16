@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mamang/home/beranda.dart';
 import 'package:mamang/model/list_users_model.dart';
 import 'package:mamang/grid/tombol.dart';
+import 'package:mamang/transaksi/tarik.dart';
 import 'package:mamang/transaksi/transfer.dart';
 
 class MobileView extends StatelessWidget {
@@ -116,8 +117,8 @@ class MobileView extends StatelessWidget {
                       tombol(Icons.payment, 'Transfer', (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> Transfer(user: user)));
                       }),
-                      tombol(Icons.payment, 'Deposit', (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                      tombol(Icons.payment, 'Penarikan', (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> penarikan(user: user)));
                       })
                     ],
                   ),
