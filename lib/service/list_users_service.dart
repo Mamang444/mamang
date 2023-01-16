@@ -12,16 +12,13 @@ class ListUsersService {
         url,
       );
       if (response.statusCode == 200) {
-        print("Berhasil");
+        // print("Berhasil");
         var json = response.data;
-        if (json is Map && json.keys.contains('data')) {
-          var data = json['data'];
-          if (data is List) {
-            return data
+          if (json is List) {
+            return json
                 .map<ListUsersModel>((u) => ListUsersModel.fromJson(u))
                 .toList();
           }
-        }
       }
       return null;
     } on DioError catch (error, stacktrace) {
@@ -55,7 +52,7 @@ class ListUsersService {
   }
 
   transfer(int user_id, double jumlah_setoran) async {
-    String url = 'https://koperasiundiksha.000webhostapp.com/setoran';
+    String url = 'http://apikoperasi.rey1024.com/transfer';
     final Response response;
     FormData formData = FormData.fromMap(
         {"user_id": user_id, "jumlah_setoran": jumlah_setoran});
