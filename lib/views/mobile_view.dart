@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mamang/login_interface/login.dart';
 import 'package:mamang/service/list_users_service.dart';
 import 'package:mamang/home/beranda.dart';
 import 'package:mamang/model/list_users_model.dart';
@@ -29,9 +30,23 @@ class _MobileViewState extends State<MobileView> {
             Stack(children: [
               Image.asset('images/bg.png', scale: 0.3),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0,25,0,0),
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: ((context) => LoginPage())));
+                        },
+                        icon: Icon(Icons.logout)),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 20 , 0, 0),
                 child: Text(
-                  '  Selamat Datang',
+                  '  Selamat Datang ' + Username,
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -56,13 +71,16 @@ class _MobileViewState extends State<MobileView> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  IconButton(onPressed: () async {
-                                    ListUsersService _service = ListUsersService();
-                                    saldo = await _service.getSaldo(
-                                      int.parse(widget.user.user_id.toString())
-                                    );
-                                    setState(() {});
-                                  }, icon: Icon(Icons.refresh)),
+                                  IconButton(
+                                      onPressed: () async {
+                                        ListUsersService _service =
+                                            ListUsersService();
+                                        saldo = await _service.getSaldo(
+                                            int.parse(widget.user.user_id
+                                                .toString()));
+                                        setState(() {});
+                                      },
+                                      icon: Icon(Icons.refresh)),
                                   Text(
                                     'Total Saldo :   ',
                                     style:
@@ -92,7 +110,8 @@ class _MobileViewState extends State<MobileView> {
                                             EdgeInsets.fromLTRB(0, 10, 10, 5),
                                         height: 50,
                                         decoration: BoxDecoration(
-                                            color: Color.fromARGB(255, 219, 219, 219),
+                                            color: Color.fromARGB(
+                                                255, 219, 219, 219),
                                             border:
                                                 Border.all(color: Colors.grey),
                                             borderRadius:
@@ -124,7 +143,8 @@ class _MobileViewState extends State<MobileView> {
                                         margin:
                                             EdgeInsets.fromLTRB(0, 0, 10, 10),
                                         decoration: BoxDecoration(
-                                            color: Color.fromARGB(255, 219, 219, 219),
+                                            color: Color.fromARGB(
+                                                255, 219, 219, 219),
                                             border:
                                                 Border.all(color: Colors.grey),
                                             borderRadius:
@@ -180,7 +200,9 @@ class _MobileViewState extends State<MobileView> {
                                 builder: (context) =>
                                     Setor(user: widget.user)));
                       }),
-                      tombol(Icons.transfer_within_a_station_outlined, 'Transfer', () {
+                      tombol(
+                          Icons.transfer_within_a_station_outlined, 'Transfer',
+                          () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -199,29 +221,12 @@ class _MobileViewState extends State<MobileView> {
                   SizedBox(
                     height: 10,
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     tombol(Icons.payment, 'Setor', () {
-                  //       Navigator.push(
-                  //           context,
-                  //           MaterialPageRoute(
-                  //               builder: (context) =>
-                  //                   Setor(user: widget.user)));
-                  //     }),
-                  //     // tombol(Icons.payment, 'Pinjaman', (){
-                  //     //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
-                  //     // }),
-                  //     // tombol(Icons.payment, 'Mutasi', (){
-                  //     //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
-                  //     // })
-                  //   ],
-                  // )
                 ],
               ),
             ),
             Container(
-                decoration: BoxDecoration(color: Colors.lightBlueAccent),
+              height: 80,
+                decoration: BoxDecoration(color: Color.fromARGB(255, 219, 219, 219)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -244,7 +249,7 @@ class _MobileViewState extends State<MobileView> {
                     Container(
                         child: Icon(
                       Icons.call,
-                      size: 80,
+                      size: 60,
                     )),
                   ],
                 ))
