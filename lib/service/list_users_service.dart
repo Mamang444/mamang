@@ -97,4 +97,18 @@ class ListUsersService {
       print('gagal');
     }
   }
+
+  setor(int user_id, double jumlah_setoran) async{
+    String url = 'http://apikoperasi.rey1024.com/setoran';
+    final Response response;
+    FormData formData = FormData.fromMap(
+      {"user_id": user_id, "jumlah_setoran": jumlah_setoran}
+    );
+    try{
+      response = await dio.post(url, data: formData);
+      print('berhasil');
+    } catch (e){
+      print('gagal');
+    }
+  }
 }
