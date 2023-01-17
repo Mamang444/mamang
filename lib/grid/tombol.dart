@@ -9,30 +9,35 @@ class tombol extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      borderRadius: BorderRadius.circular(10),
-      elevation: 10,
-      child: Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-            color: Colors.lightBlueAccent,
-            borderRadius: BorderRadius.circular(10)),
-        child: InkWell(
-          onTap: onPressed,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                itombol,
-                size: 40,
-                color: Colors.blue,
+    return Column(
+      children: [
+        Material(
+          borderRadius: BorderRadius.circular(50),
+          elevation: 10,
+          child: Container(
+            width: 80,
+            height: 80,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(50)),
+            child: InkWell(
+              onTap: onPressed,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    itombol,
+                    size: 40,
+                    color: Colors.blue,
+                  ),
+                ],
               ),
-              Text(nmtombol)
-            ],
+            ),
           ),
         ),
-      ),
+        SizedBox(height: 10),
+        Text(nmtombol)
+      ],
     ) ;
 
   }
