@@ -45,25 +45,25 @@ class _BerandaState extends State<Beranda> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginPage(),
-                    ));
-              },
-              icon: Icon(Icons.logout))
-        ],
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 19, 17, 175),
-        title: Text(
-          'Koperasi Undiksha',
-          style: TextStyle(),
-        ),
-      ),
+      // appBar: AppBar(
+      //   actions: [
+      //     IconButton(
+      //         onPressed: () {
+      //           Navigator.pushReplacement(
+      //               context,
+      //               MaterialPageRoute(
+      //                 builder: (context) => LoginPage(),
+      //               ));
+      //         },
+      //         icon: Icon(Icons.logout))
+      //   ],
+      //   centerTitle: true,
+      //   backgroundColor: Color.fromARGB(255, 19, 17, 175),
+      //   title: Text(
+      //     'Koperasi Undiksha',
+      //     style: TextStyle(),
+      //   ),
+      // ),
       body: LayoutBuilder(builder: ((context, constraints) {
         if (constraints.maxWidth > 480) {
           return TabletView();

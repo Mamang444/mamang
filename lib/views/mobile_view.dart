@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mamang/home/Ceksaldo.dart';
 import 'package:mamang/home/beranda.dart';
 import 'package:mamang/model/list_users_model.dart';
 import 'package:mamang/grid/tombol.dart';
@@ -23,10 +24,9 @@ class MobileView extends StatelessWidget {
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(height: 20),
-                  Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10)),
+                  Material(
+                    borderRadius: BorderRadius.circular(15),
+                    elevation: 10,
                       child: Row(
                         children: [
                           Container(
@@ -78,7 +78,7 @@ class MobileView extends StatelessWidget {
                                       Container(
                                           width: 200,
                                           child: Text(
-                                            'Total Saldo Anda',
+                                            'Nomor Rekening',
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold),
@@ -86,7 +86,7 @@ class MobileView extends StatelessWidget {
                                       Container(
                                         width: 200,
                                         child: Text(
-                                          user.saldo.toString(),
+                                          user.nomor_rekening.toString(),
                                           textAlign: TextAlign.start,
                                         ),
                                       ),
@@ -113,7 +113,7 @@ class MobileView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       tombol(Icons.payment, 'Cek Saldo', (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> CekSaldo(user: user)));
                       }),
                       tombol(Icons.payment, 'Transfer', (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> Transfer(user: user)));
@@ -132,12 +132,12 @@ class MobileView extends StatelessWidget {
                       tombol(Icons.payment, 'Setor', (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> Setor(user: user)));
                       }),
-                      tombol(Icons.payment, 'Pinjaman', (){
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
-                      }),
-                      tombol(Icons.payment, 'Mutasi', (){
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
-                      })
+                      // tombol(Icons.payment, 'Pinjaman', (){
+                      //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                      // }),
+                      // tombol(Icons.payment, 'Mutasi', (){
+                      //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Beranda(user: user)));
+                      // })
                     ],
                   )
                 ],

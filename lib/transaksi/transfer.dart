@@ -14,7 +14,7 @@ class _TransferState extends State<Transfer> {
   List<ListUsersModel> _listUser = [];
   bool loading_transfer = false;
 
-    getUsers() async {
+  getUsers() async {
     ListUsersService _service = ListUsersService();
     await _service.getDataUsers().then((value) {
       setState(() {
@@ -24,44 +24,44 @@ class _TransferState extends State<Transfer> {
     });
   }
 
-tranferSaldo(int user_id, String jumlah, String nomor_rekening) async {
+  tranferSaldo(int user_id, String jumlah, String nomor_rekening) async {
     ListUsersService _service = ListUsersService();
     await _service.transfer(user_id, double.parse(jumlah), nomor_rekening);
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [IconButton(onPressed: getUsers, icon: Icon(Icons.refresh))],
-      title: Text('Transfer'),
-      centerTitle: true,
-      // leading: IconButton(onPressed: () {MaterialPageRoute(builder: (context)=> Beranda(user: widget.user));}, icon: Icon(Icons.arrow_back),),
+      appBar: AppBar(
+        actions: [IconButton(onPressed: getUsers, icon: Icon(Icons.refresh))],
+        title: Text('Transfer'),
+        centerTitle: true,
+        // leading: IconButton(onPressed: () {MaterialPageRoute(builder: (context)=> Beranda(user: widget.user));}, icon: Icon(Icons.arrow_back),),
       ),
       body: Column(children: [
+        SizedBox(height: 10),
         Expanded(child: FutureBuilder<List<ListUsersModel>?>(
           builder: ((context, snapshot) {
             return ListView.builder(
-              itemCount: _listUser.length,
-              itemBuilder: (context, index) {
-                ListUsersModel data = _listUser[index];
-                return listTileUser(
-                data.user_id!.toString(),
-                data.saldo,
-                data.username!,
-                Colors.blue,
-                data.saldo!,
-                Colors.grey.shade100,
-                 data.nama.toString()
-                );
-              }
-            );
-          })
-        ,))
+                itemCount: _listUser.length,
+                itemBuilder: (context, index) {
+                  ListUsersModel data = _listUser[index];
+                  return listTileUser(
+                      data.user_id!.toString(),
+                      data.saldo,
+                      data.username!,
+                      Colors.blue,
+                      data.saldo!,
+                      Colors.grey.shade100,
+                      data.nama.toString());
+                });
+          }),
+        ))
       ]),
     );
   }
 
-Widget listTileUser(String id, String? saldo, String subtitle, Color color,
+  Widget listTileUser(String id, String? saldo, String subtitle, Color color,
       String nilai, Color bgColor, String nama) {
     return ListTile(
       title: Text(nama,
@@ -74,7 +74,7 @@ Widget listTileUser(String id, String? saldo, String subtitle, Color color,
     );
   }
 
-Widget gridText(String nilai) {
+  Widget gridText(String nilai) {
     return Center(
       child: Text(
         nilai,
@@ -87,17 +87,17 @@ Widget gridText(String nilai) {
     );
   }
 
-transferDialog(String nama, int id) {
-   TextEditingController jumlahSetoranController = TextEditingController();
-   TextEditingController rekeningController = TextEditingController();
-   return showDialog(
-     context: context,
-     builder: (_) => AlertDialog(
-       actions: [
-         TextButton(
-           onPressed: () {
-             Navigator.pop(context);
-           },
+  transferDialog(String nama, int id) {
+    TextEditingController jumlahSetoranController = TextEditingController();
+    TextEditingController rekeningController = TextEditingController();
+    return showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: Text('Batal'),
           ),
           (loading_transfer)
@@ -107,7 +107,8 @@ transferDialog(String nama, int id) {
                     setState(() {
                       loading_transfer = true;
                     });
-                    await tranferSaldo(id, jumlahSetoranController.text, rekeningController.text);
+                    await tranferSaldo(id, jumlahSetoranController.text,
+                        rekeningController.text);
                     getUsers();
 
                     Navigator.pop(context);
