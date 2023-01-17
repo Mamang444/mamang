@@ -18,88 +18,93 @@ class MobileView extends StatelessWidget {
           child: Center(
         child: Column(
           children: [
-            Container(
-              margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(height: 20),
-                  Material(
-                    borderRadius: BorderRadius.circular(15),
-                    elevation: 10,
-                      child: Row(
-                        children: [
-                          Container(
-                              margin: EdgeInsets.all(20),
-                              width: 100,
-                              height: 100,
-                              child: Image.asset('images/undiksha.png')),
-                          Container(
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(5),
-                                  margin: EdgeInsets.fromLTRB(0, 10, 10, 5),
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      border: Border.all(color: Colors.black),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Column(
-                                    children: [
-                                      Container(
+            Stack(
+              children: [
+                Image.asset('images/bg.png', scale: 0.3),
+                Container(
+                margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(height: 100),
+                    Material(
+                      borderRadius: BorderRadius.circular(15),
+                      elevation: 10,
+                        child: Row(
+                          children: [
+                            Container(
+                                margin: EdgeInsets.all(20),
+                                width: 100,
+                                height: 120,
+                                child: Image.asset('images/undiksha.png')),
+                            Container(
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(5),
+                                    margin: EdgeInsets.fromLTRB(0, 10, 10, 5),
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        border: Border.all(color: Colors.black),
+                                        borderRadius: BorderRadius.circular(10)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            width: 200,
+                                            child: Text(
+                                              'Nasabah',
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            )),
+                                        Container(
                                           width: 200,
                                           child: Text(
-                                            'Nasabah',
+                                            user.nama.toString(),
                                             textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          )),
-                                      Container(
-                                        width: 200,
-                                        child: Text(
-                                          user.nama.toString(),
-                                          textAlign: TextAlign.start,
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(5),
-                                  height: 50,
-                                  margin: EdgeInsets.fromLTRB(0, 0, 10, 10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      border: Border.all(color: Colors.black),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Column(
-                                    children: [
-                                      Container(
+                                  Container(
+                                    padding: EdgeInsets.all(5),
+                                    height: 50,
+                                    margin: EdgeInsets.fromLTRB(0, 0, 10, 10),
+                                    decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        border: Border.all(color: Colors.black),
+                                        borderRadius: BorderRadius.circular(10)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            width: 200,
+                                            child: Text(
+                                              'Nomor Rekening',
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            )),
+                                        Container(
                                           width: 200,
                                           child: Text(
-                                            'Nomor Rekening',
+                                            user.nomor_rekening.toString(),
                                             textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          )),
-                                      Container(
-                                        width: 200,
-                                        child: Text(
-                                          user.nomor_rekening.toString(),
-                                          textAlign: TextAlign.start,
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      )),
-                ],
+                          ],
+                        )),
+                  ],
+                ),
               ),
+          ]
             ),
             Container(
               padding: EdgeInsets.all(10),
