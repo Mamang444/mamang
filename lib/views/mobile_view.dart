@@ -119,7 +119,7 @@ class _MobileViewState extends State<MobileView> {
                                         child: Column(
                                           children: [
                                             Container(
-                                                width: 200,
+                                                width: 180,
                                                 child: Text(
                                                   'Nasabah',
                                                   textAlign: TextAlign.start,
@@ -128,7 +128,7 @@ class _MobileViewState extends State<MobileView> {
                                                           FontWeight.bold),
                                                 )),
                                             Container(
-                                              width: 200,
+                                              width: 180,
                                               child: Text(
                                                 widget.user.nama.toString(),
                                                 textAlign: TextAlign.start,
@@ -152,7 +152,7 @@ class _MobileViewState extends State<MobileView> {
                                         child: Column(
                                           children: [
                                             Container(
-                                                width: 200,
+                                                width: 180,
                                                 child: Text(
                                                   'Nomor Rekening',
                                                   textAlign: TextAlign.start,
@@ -161,7 +161,7 @@ class _MobileViewState extends State<MobileView> {
                                                           FontWeight.bold),
                                                 )),
                                             Container(
-                                              width: 200,
+                                              width: 180,
                                               child: Text(
                                                 widget.user.nomor_rekening
                                                     .toString(),

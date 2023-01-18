@@ -54,10 +54,10 @@ class _SetorState extends State<Setor> {
                   child: Text('Setor'),
                 ),
               ],
-              title: Text('Penarikan'),
+              title: Text('Setoran'),
               content: TextField(
                 decoration: InputDecoration(
-                  labelText: "jumlah Penarikan"
+                  labelText: "jumlah Setoran"
                 ),
                 controller: jumlahSetoranController,
               ),
