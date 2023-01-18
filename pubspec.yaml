@@ -41,6 +41,7 @@ dependencies:
   shared_preferences: ^2.0.15
   http: ^0.13.5
   google_fonts: ^3.0.1
+  # native_notify: ^0.0.16
 
 dev_dependencies:
   flutter_test:

@@ -7,6 +7,7 @@ import 'package:mamang/grid/tombol.dart';
 import 'package:mamang/transaksi/setor.dart';
 import 'package:mamang/transaksi/tarik.dart';
 import 'package:mamang/transaksi/transfer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MobileView extends StatefulWidget {
   final ListUsersModel user;
@@ -19,6 +20,24 @@ class MobileView extends StatefulWidget {
 class _MobileViewState extends State<MobileView> {
   late int saldo = int.parse(widget.user.saldo.toString());
   late String Username = widget.user.username.toString();
+
+  _sendingTel() async {
+    var url = Uri.parse("tel:081936992847");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _sendingSMS() async {
+    var url = Uri.parse("sms://081936992847");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +55,17 @@ class _MobileViewState extends State<MobileView> {
                   children: [
                     IconButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: ((context) => LoginPage())));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => LoginPage())));
                         },
                         icon: Icon(Icons.logout)),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20 , 0, 0),
+                padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                 child: Text(
                   '  Selamat Datang ' + Username,
                   style: TextStyle(
@@ -225,8 +246,9 @@ class _MobileViewState extends State<MobileView> {
               ),
             ),
             Container(
-              height: 80,
-                decoration: BoxDecoration(color: Color.fromARGB(255, 219, 219, 219)),
+                height: 80,
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 219, 219, 219)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -240,17 +262,24 @@ class _MobileViewState extends State<MobileView> {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          '0878-1234-1024',
+                          '0819-3699-2847',
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
                         )
                       ],
                     )),
                     Container(
-                        child: Icon(
-                      Icons.call,
-                      size: 60,
-                    )),
+                        child: Row(
+                          children: [
+                            IconButton(onPressed: () {
+                              _sendingSMS();
+                            }, icon: Icon(Icons.message), iconSize: 40),
+                            IconButton(onPressed: (){
+                              _sendingTel();
+                            }, icon: Icon(Icons.call), iconSize: 40,),
+                          ],
+                        )
+                    ),
                   ],
                 ))
           ],

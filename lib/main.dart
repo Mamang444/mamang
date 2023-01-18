@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mamang/login_interface/login.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+// import 'package:native_notify/native_notify.dart';
 
 void main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // NativeNotify.initialize(2443, 'eEJdu8jfAr59yFQXeLl81W', null, null);
   runApp(
     MaterialApp(
       builder: ((context, child) => ResponsiveWrapper.builder(child,

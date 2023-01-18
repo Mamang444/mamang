@@ -13,6 +13,7 @@ class Transfer extends StatefulWidget {
 class _TransferState extends State<Transfer> {
   List<ListUsersModel> _listUser = [];
   bool loading_transfer = false;
+  int biaya = 1092;
 
   getUsers() async {
     ListUsersService _service = ListUsersService();
@@ -27,6 +28,11 @@ class _TransferState extends State<Transfer> {
   tranferSaldo(int user_id, String jumlah, String nomor_rekening) async {
     ListUsersService _service = ListUsersService();
     await _service.transfer(user_id, double.parse(jumlah), nomor_rekening);
+  }
+
+  biayaTarik(int user_id, String jumlah_tarikan) async {
+    ListUsersService _service = ListUsersService();
+    await _service.tarik(user_id, double.parse(jumlah_tarikan));
   }
 
   @override
@@ -109,6 +115,7 @@ class _TransferState extends State<Transfer> {
                     });
                     await tranferSaldo(id, jumlahSetoranController.text,
                         rekeningController.text);
+                        biayaTarik(id, biaya.toString());
                     getUsers();
 
                     Navigator.pop(context);
@@ -134,6 +141,8 @@ class _TransferState extends State<Transfer> {
                     ),
                     controller: rekeningController,
                   ),
+                  SizedBox(height: 20,),
+                  Text('Penarikan akan dikenakan biaya sebesar Rp. $biaya')
                 ],
               ),
             ),
