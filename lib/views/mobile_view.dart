@@ -130,6 +130,7 @@ class _MobileViewState extends State<MobileView> {
                                         margin:
                                             EdgeInsets.fromLTRB(0, 10, 10, 5),
                                         height: 50,
+                                        width: 160,
                                         decoration: BoxDecoration(
                                             color: Color.fromARGB(
                                                 255, 219, 219, 219),
@@ -140,7 +141,7 @@ class _MobileViewState extends State<MobileView> {
                                         child: Column(
                                           children: [
                                             Container(
-                                                width: 180,
+                                                width: 160,
                                                 child: Text(
                                                   'Nasabah',
                                                   textAlign: TextAlign.start,
@@ -149,7 +150,7 @@ class _MobileViewState extends State<MobileView> {
                                                           FontWeight.bold),
                                                 )),
                                             Container(
-                                              width: 180,
+                                              width: 160,
                                               child: Text(
                                                 widget.user.nama.toString(),
                                                 textAlign: TextAlign.start,
@@ -161,6 +162,7 @@ class _MobileViewState extends State<MobileView> {
                                       Container(
                                         padding: EdgeInsets.all(5),
                                         height: 50,
+                                        width: 160,
                                         margin:
                                             EdgeInsets.fromLTRB(0, 0, 10, 10),
                                         decoration: BoxDecoration(
@@ -173,7 +175,7 @@ class _MobileViewState extends State<MobileView> {
                                         child: Column(
                                           children: [
                                             Container(
-                                                width: 180,
+                                                width: 160,
                                                 child: Text(
                                                   'Nomor Rekening',
                                                   textAlign: TextAlign.start,
@@ -182,7 +184,7 @@ class _MobileViewState extends State<MobileView> {
                                                           FontWeight.bold),
                                                 )),
                                             Container(
-                                              width: 180,
+                                              width: 160,
                                               child: Text(
                                                 widget.user.nomor_rekening
                                                     .toString(),
