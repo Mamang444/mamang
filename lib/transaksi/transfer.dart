@@ -185,7 +185,7 @@ class _TransferState extends State<Transfer> {
 
     await flutterLocalNotificationsPlugin.show(
       1,
-      'Bank Undiksha',
+      'Koprasi Undiksha',
       'Berhasil Transfer',
       NotificationDetails(
         android: AndroidNotificationDetails(channel.id, channel.name,
